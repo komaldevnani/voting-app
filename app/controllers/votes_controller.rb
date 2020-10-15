@@ -6,10 +6,10 @@ class VotesController < ApplicationController
       if @option && @poll && !current_user.voted_for?(@poll) && @poll.votes_summary <12
         current_user.votes.create({item_id: @option.id})
       else
-        flash[:alert]='alert(\'Your vote cannot be saved. Have you already voted?\');'
+        flash[:alert]='Your vote cannot be saved. Have you already voted?'
       end
     else
-      flash[:alert]='alert(\'Your vote cannot be saved.\');'
+      flash[:alert]='Your vote cannot be saved.'
     end
   end
 end

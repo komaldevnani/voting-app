@@ -8,6 +8,6 @@ class User < ApplicationRecord
   has_many :items, through: :votes
 
   def voted_for?(poll)
-    items.any? {|v| v.poll == poll }
+    items.any? {|i| i.poll == poll }
   end
 end
