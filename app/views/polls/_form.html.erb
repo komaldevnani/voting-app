@@ -9,6 +9,19 @@
     </div>
   </div>
 
+  <div class="panel panel-default">
+    <div class="panel-heading">Options</div>
+    <div id='items' class="panel-body"  >
+      <%= f.fields_for :items do |options_form| %>
+        <%= render 'item_fields', f: options_form %>
+      <% end %>
+
+      <div class="links" id="add-item">
+        <%= link_to_add_association 'add option', f, :items %>
+      </div>
+    </div>
+  </div>
+
   <div class="row justify-content-center">
     <div class="col-sm-8">
       <%= f.submit 'create', class: "btn btn-secondary " %>

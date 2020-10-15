@@ -1,0 +1,14 @@
+VOTED: <%= current_user.voted_for?(poll_obj) %>
+<%= form_tag votes_path, method: :post, remote: true, id: 'voting_form' do %>
+  <%= hidden_field_tag 'poll[id]', poll_obj.id %>
+
+  <%= render partial: '/polls/poll_items', collection: poll_obj.items, as: :option, locals: {poll: poll_obj}%>
+
+  <p><b>Total votes: <%= poll_obj.votes_summary %></b></p>
+
+  <% if current_user.voted_for?(poll_obj) %>
+    <p>You have already voted!</p>
+  <% else %>
+    <%= submit_tag 'Vote', class: 'btn btn-lg btn-primary' %>
+  <% end %>
+<% end %>

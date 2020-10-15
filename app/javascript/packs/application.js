@@ -7,6 +7,8 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("jquery")
+import 'cocoon-js'
 
 import 'bootstrap'
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -15,3 +17,23 @@ import 'bootstrap'
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+$(function() {
+    // limits the number of categories
+    $('#items').on('cocoon:after-insert', function() {
+        check_to_hide_or_show_add_link();
+    });
+
+    $('#items').on('cocoon:after-remove', function() {
+        check_to_hide_or_show_add_link();
+    });
+
+    check_to_hide_or_show_add_link();
+
+    function check_to_hide_or_show_add_link() {
+        if ($('#items .nested-fields').length == 5) {
+            $('#add-item a').hide();
+        } else {
+            $('#add-item a').show();
+        }
+    }
+})
