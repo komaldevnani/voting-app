@@ -12,22 +12,22 @@
 
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <%#=link_to "Polls", class="nav-link" %>
+            <%=link_to "My Polls", polls_path, class:"nav-link" %>
           </li>
         </ul>
 
-        <form class="form-inline my-2 my-lg-0">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= truncate(current_user.email, length:25).html_safe %>
+        <div class="my-2 my-lg">
+          <div class="nav-item dropdown">
+            <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%="#{truncate(current_user.email, length:25).html_safe}" %>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%#= link_to "My Polls", class="dropdown-item"%>
+              <%= link_to "create poll", new_poll_path, class:"dropdown-item"%>
               <div class="dropdown-divider"></div>
               <%=link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
-          </li>
-        </form>
+          </div>
+        </div>
       <%end %>
 
     </div>
