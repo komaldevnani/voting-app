@@ -1,8 +1,8 @@
-#Voting Web application
+# Voting Web application
 
 A web application where we can create and participate in polls.
 
-##Requirements
+## Requirements
 
 Ruby version 2.6.3
 
