@@ -1,24 +1,25 @@
-# README
+#Voting Web application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A web application where we can create and participate in polls.
 
-Things you may want to cover:
+##Requirements
 
-* Ruby version
+Ruby version 2.6.3
 
-* System dependencies
+Rails version 6.0.2 and above
 
-* Configuration
+## Setup
 
-* Database creation
+* Clone the project
 
-* Database initialization
+git clone https://gitlab.com/votingWebApp/voting-app.git
 
-* How to run the test suite
+* cd voting-app
 
-* Services (job queues, cache servers, search engines, etc.)
+* Run command ```bundle install``` for all gem dependencies
 
-* Deployment instructions
+* For databases run
 
-* ...
+```rails db:create db:migrate```
+
+* Now run ```rails s``` and navigate to localhost:3000 in your browser.
