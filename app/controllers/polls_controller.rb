@@ -18,6 +18,7 @@ class PollsController < ApplicationController
 
   def index
     @polls = Poll.includes(:items).paginate(page: params[:page], per_page: 5)
+    @vote = Vote.new
   end
 
   def show
@@ -57,6 +58,6 @@ class PollsController < ApplicationController
   end
 
   def poll_params
-    params.require(:poll).permit(:title, items_attributes: [:id,:name])
+    params.require(:poll).permit(:title, items_attributes: [:id,:name, :_destroy])
   end
 end

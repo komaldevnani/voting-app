@@ -1,0 +1,18 @@
+<p>
+<div class="row justify-content-md-center">
+  <div class="card border-light bg-light w-50">
+    <h4 class="card-header titles"><%= link_to "#{@poll.title}",
+                                               poll_path(@poll)%></h4>
+    <div class="card-body ">
+      <%= render partial: 'voting_form', locals: {poll_obj: @poll} %>
+    </div>
+
+    <%if current_user.id == @poll.user_id %>
+      <div class="card-footer bg-transparent">
+        <%= link_to "Edit", edit_poll_path(@poll), class:"btn btn-outline-info btn-sm" %>
+        <%= link_to "Delete", poll_path(@poll), method: :delete, class:"btn btn-outline-danger btn-sm" %>
+      </div>
+    <%end %>
+  </div>
+</div>
+</p>

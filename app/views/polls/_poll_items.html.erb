@@ -1,8 +1,12 @@
 <div class="form-group">
   <%= content_tag(:label) do %>
-    <% unless current_user.voted_for?(poll) && poll.votes_summary <12 %>
+    <% unless current_user.voted_for?(poll) && poll.votes_count <12 %>
       <%= radio_button_tag 'item[id]', option.id%>
     <% end %>
     <%= option.name %>
+
+    <% if current_user.voted_for?(poll) %>
+      <b><%= poll.votes_summary[option.name] %></b>
+    <%end %>
   <% end %>
 </div>
